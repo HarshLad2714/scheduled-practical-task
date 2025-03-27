@@ -31,7 +31,8 @@ This project sets up a scheduled task that fetches random users from an external
 `php artisan make:command FetchRandomUsersJob`
 Paste the following code in `app/Console/Commands/FetchRandomUsersJob.php`
 
-` public function handle()
+` 
+public function handle()
     {
         for ($i = 0; $i < 5; $i++) {
             $response = Http::get('https://randomuser.me/api/')->json();
@@ -72,7 +73,8 @@ Edit  `routes/api.php` and add:
 `Route::get('/users', [UserController::class, 'index']);`
 
 Edit `app/Http/Controllers/API/UserController.php` and add:
-`public function index(Request $request)
+`
+public function index(Request $request)
 {
     $query = User::with(['details', 'location']);
 
